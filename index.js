@@ -60,6 +60,24 @@ app.get("/negate", (req, res) => {
   res.json({ result: num_a * -1 });
 });
 
+app.get("/status", (req, res) => {
+  //TODO
+  return res
+    .status(400)
+    .json({ error: "Functionality not implemented yet" });
+});
+
+app.get("/hello", (req, res) => {
+  //TODO
+  return res
+    .status(400)
+    .json({ error: "Functionality not implemented yet" });
+});
+
+
+
+
+
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`API service listening at http://localhost:${port}`);
