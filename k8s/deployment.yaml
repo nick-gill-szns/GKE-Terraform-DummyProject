@@ -18,7 +18,7 @@ spec:
       - image: gcr.io/nickgketerraformdemoproject/my-repository/myimage
         name: expressapiapp
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
 
 ---
 
@@ -32,5 +32,5 @@ spec:
   ports:
   - protocol: TCP
     port: 3000
-    targetPort: 8080
+    targetPort: 3000
   type: LoadBalancer
