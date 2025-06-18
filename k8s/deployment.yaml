@@ -17,7 +17,7 @@ spec:
         app: "expressapiapp"
     spec:
       containers:
-      - name: "myimage-sha256-1"
+      - name: "expressapiapp"
         image: "us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage:latest"   
         envFrom:
         - configMapRef:
