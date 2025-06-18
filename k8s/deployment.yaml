@@ -15,7 +15,7 @@ spec:
         run: expressapiapp
     spec:
       containers:
-      - image: gcr.io/nickgketerraformdemoproject/my-repository/myimage
+      - image: us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage
         name: expressapiapp
         ports:
         - containerPort: 3000
