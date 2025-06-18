@@ -74,7 +74,7 @@ app.get("/hello", (req, res) => {
       .status(400)
       .json({ error: "Unable to find environment" });
   }
-  res.json({result: process.env.env})
+  res.json({result: process.env.env});
 });
 
 
