@@ -18,7 +18,10 @@ spec:
     spec:
       containers:
       - name: "myimage-sha256-1"
-        image: "us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage:latest"        
+        image: "us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage:latest"   
+        envFrom:
+        - configMapRef:
+            name: gke-terraform-config    
 ---
 apiVersion: "v1"
 kind: "Service"

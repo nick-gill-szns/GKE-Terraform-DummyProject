@@ -69,10 +69,12 @@ app.get("/status", (req, res) => {
 });
 
 app.get("/hello", (req, res) => {
-  //TODO
-  return res
-    .status(400)
-    .json({ error: "Functionality not implemented yet" });
+  if (process.env.env === null) {
+    return res
+      .status(400)
+      .json({ error: "Unable to find environment" });
+  }
+  res.json({result: process.env.env})
 });
 
 
