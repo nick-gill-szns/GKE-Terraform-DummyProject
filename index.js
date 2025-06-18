@@ -69,11 +69,6 @@ app.get("/status", (req, res) => {
 });
 
 app.get("/hello", (req, res) => {
-  if (process.env.env === null) {
-    return res
-      .status(400)
-      .json({ error: "Unable to find environment" });
-  }
   res.json({result: process.env.env});
 });
 
