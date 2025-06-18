@@ -69,6 +69,12 @@ app.get("/status", (req, res) => {
 });
 
 app.get("/hello", (req, res) => {
+  console.log(process.env.env)
+  if (!["dev", "prod"].includes(process.env.env)) {
+    return res
+      .status(400)
+      .json({ error: "Unable to find environment" });
+  }
   res.json({result: process.env.env});
 });
 
