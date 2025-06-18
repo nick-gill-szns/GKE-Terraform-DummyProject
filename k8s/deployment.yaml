@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: ExpressAPIApp
-  name: ExpressAPIApp
+    run: expressapiapp
+  name: expressapiapp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: ExpressAPIApp
+      run: expressapiapp
   template:
     metadata:
       labels:
-        run: ExpressAPIApp
+        run: expressapiapp
     spec:
       containers:
       - image: gcr.io/nickgketerraformdemoproject/myimage
-        name: ExpressAPIApp
+        name: expressapiapp
         ports:
         - containerPort: 3000
 
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ExpressAPIApp
+  name: expressapiapp
 spec:
   selector:
-     run: ExpressAPIApp
+     run: expressapiapp
   ports:
   - protocol: TCP
     port: 3000
