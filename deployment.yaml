@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: ExpressAPIApp
+  name: ExpressAPIApp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: ExpressAPIApp
+  template:
+    metadata:
+      labels:
+        run: ExpressAPIApp
+    spec:
+      containers:
+      - image: gcr.io/nickgketerraformdemoproject/myimage
+        name: ExpressAPIApp
+        ports:
+        - containerPort: 3000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ExpressAPIApp
+spec:
+  selector:
+     run: ExpressAPIApp
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: LoadBalancer
