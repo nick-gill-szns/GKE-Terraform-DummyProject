@@ -21,7 +21,9 @@ spec:
         image: "us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage:latest"   
         envFrom:
         - configMapRef:
-            name: gke-terraform-config    
+            name: gke-terraform-config 
+        ports:
+        - containerPort: 8080   
 ---
 apiVersion: "v1"
 kind: "Service"
@@ -34,6 +36,7 @@ spec:
   ports:
   - protocol: "TCP"
     port: 80
+    targetPort: 8080
   selector:
     app: "expressapiapp"
   type: "LoadBalancer"
