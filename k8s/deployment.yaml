@@ -1,36 +1,37 @@
-apiVersion: apps/v1
-kind: Deployment
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
 metadata:
+  name: "expressapiapp"
+  namespace: "default"
   labels:
-    run: expressapiapp
-  name: expressapiapp
+    app: "expressapiapp"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: expressapiapp
+      app: "expressapiapp"
   template:
     metadata:
       labels:
-        run: expressapiapp
+        app: "expressapiapp"
     spec:
       containers:
-      - image: us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage
-        name: expressapiapp
-        ports:
-        - containerPort: 3000
-
+      - name: "myimage-sha256-1"
+        image: "us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage:latest"        
 ---
-
-apiVersion: v1
-kind: Service
+apiVersion: "v1"
+kind: "Service"
 metadata:
-  name: expressapiapp
+  name: "expressapiapp-service"
+  namespace: "default"
+  labels:
+    app: "expressapiapp"
 spec:
-  selector:
-     run: expressapiapp
   ports:
-  - protocol: TCP
-    port: 3000
-    targetPort: 3000
-  type: LoadBalancer
+  - protocol: "TCP"
+    port: 80
+  selector:
+    app: "expressapiapp"
+  type: "LoadBalancer"
+  loadBalancerIP: ""
