@@ -15,7 +15,7 @@ spec:
         run: expressapiapp
     spec:
       containers:
-      - image: gcr.io/nickgketerraformdemoproject/myimage
+      - image: gcr.io/nickgketerraformdemoproject/my-repository/myimage
         name: expressapiapp
         ports:
         - containerPort: 8080
