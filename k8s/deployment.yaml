@@ -16,6 +16,11 @@ spec:
       labels:
         app: "expressapiapp"
     spec:
+    # #serviceaccountname
+    #   volumes:
+    #   - name: secret-volume
+    #     secret:
+    #       secretName: big_query_service_account
       containers:
       - name: "expressapiapp"
         image: "us-east1-docker.pkg.dev/nickgketerraformdemoproject/my-repository/myimage:latest"   
@@ -24,6 +29,10 @@ spec:
             name: gke-terraform-config 
         ports:
         - containerPort: 8080   
+        # volumeMounts:
+        # - name: secret-volume
+        #   readOnly: true
+        #   mountPath: "/etc/secret-volume"
 ---
 apiVersion: "v1"
 kind: "Service"
