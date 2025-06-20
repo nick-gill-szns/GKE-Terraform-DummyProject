@@ -23,5 +23,5 @@ spec:
   - "test.szns.com"
   rules:
   - backendRefs:
-    - name: gke-terraformcluster
+    - name: expressapiapp-service
       port: 8080
