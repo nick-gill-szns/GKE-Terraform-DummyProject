@@ -1,15 +1,15 @@
-kind: Gateway
-apiVersion: gateway.networking.k8s.io/v1beta1
-metadata:
-  name: external-http
-  annotations:
-    networking.gke.io/certmap: store-example-com-map
-spec:
-  gatewayClassName: gke-l7-global-external-managed
-  listeners:
-  - name: https
-    protocol: HTTPS
-    port: 443
+# kind: Gateway
+# apiVersion: gateway.networking.k8s.io/v1beta1
+# metadata:
+#   name: external-http
+#   annotations:
+#     networking.gke.io/certmap: store-example-com-map
+# spec:
+#   gatewayClassName: gke-l7-global-external-managed
+#   listeners:
+#   - name: https
+#     protocol: HTTPS
+#     port: 443
 # ---
 # kind: HTTPRoute
 # apiVersion: gateway.networking.k8s.io/v1beta1
